@@ -169,12 +169,12 @@ Decide on an appropriate action path:
 ✔ Community-Resolvable
 Hazards that can be addressed locally (e.g., minor road damage, blocked drainage, signage issues)
 
-###🚨 Escalation to Authorities
+**🚨 Escalation to Authorities**
 Hazards requiring intervention from relevant institutions (e.g., district authorities, utilities, emergency services)
 
 
 
-###📍 Automatic Location Capture
+**📍 Automatic Location Capture**
 
 To reduce reporting friction and improve accuracy, SafePoint is designed to automatically capture the user’s location during hazard reporting.
 
@@ -200,7 +200,9 @@ Faster verification by community leaders and authorities
 
 Note: While full backend storage and map-based visualization are planned for future iterations, the location capture workflow is architecturally integrated into the system design and research scope.
 
- 🚀 Deployment Plan
+
+
+ **🚀 Deployment Plan**
 
 * **Short-term**: Research,Figma Design Local AR reporting and demonstration
 * **Mid-term**: Backend integration (Firebase / REST API)
@@ -214,7 +216,7 @@ Note: While full backend storage and map-based visualization are planned for fut
 
 
 
- 👩🏽‍💻 Author
+ **👩🏽‍💻 Author**
 
 Ange Kevine Gitego Rugema
 Bachelor’s in Software Engineering
@@ -222,7 +224,7 @@ African Leadership University
 
 
 
- 📄 License
+**📄 License**
 
 This project is developed for **academic and research purposes** as part of a Mission-Based Capstone Project.
 
