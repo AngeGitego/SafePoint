@@ -128,6 +128,8 @@ AR is not a novelty here — it is a **functional requirement** for accurate, lo
 
 
  🧭 AR Interaction Flow
+ 
+**Link to Figma** : https://www.figma.com/proto/8JkDFkpynxzUqhg3VhlCw5/SafePoint-%E2%80%93-AR-Community-Safety-Reporting--Prototype-?node-id=1-2&t=WKoZT7NGcY4wHnJu-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1
 
 1. User opens SafePoint
 2. Selects **Report a Hazard**
@@ -167,10 +169,12 @@ Decide on an appropriate action path:
 ✔ Community-Resolvable
 Hazards that can be addressed locally (e.g., minor road damage, blocked drainage, signage issues)
 
-🚨 Escalation to Authorities
+###🚨 Escalation to Authorities
 Hazards requiring intervention from relevant institutions (e.g., district authorities, utilities, emergency services)
 
-📍 Automatic Location Capture
+
+
+###📍 Automatic Location Capture
 
 To reduce reporting friction and improve accuracy, SafePoint is designed to automatically capture the user’s location during hazard reporting.
 
