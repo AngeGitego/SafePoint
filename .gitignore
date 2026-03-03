@@ -27,3 +27,6 @@
 # ===== OS =====
 .DS_Store
 Thumbs.db
+
+# Firebase desktop binaries (avoid >100MB)
+citizen-app-unity/Assets/Firebase/Plugins/x86_64/

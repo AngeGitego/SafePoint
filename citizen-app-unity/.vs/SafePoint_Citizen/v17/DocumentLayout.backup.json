@@ -1,0 +1,250 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\safepoint_citizen\\assets\\scripts\\hazardfloat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hazardfloat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\safepoint_citizen\\assets\\scripts\\scripts 1\\arcliprecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts 1\\arcliprecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\scripts 1\\appstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts 1\\appstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\scripts 1\\clipplaybackui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts 1\\clipplaybackui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\scripts 1\\arplacementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts 1\\arplacementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\reportdetailsui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\reportdetailsui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\reportmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\reportmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\firebaseinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\firebaseinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\HazardFormUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\HazardFormUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\uiflowmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uiflowmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\managersbootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managersbootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\assets\\scripts\\locationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3008AE7-AA62-902B-C01B-DE702052C238}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\locationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\LeaderPortalOpener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\LeaderPortalOpener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\DisplayCapturedImage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Scripts 1\\DisplayCapturedImage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HazardFloat.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\HazardFloat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HazardFloat.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\HazardFloat.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HazardFloat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-01T09:59:43.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClipPlaybackUI.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\ClipPlaybackUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\ClipPlaybackUI.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\ClipPlaybackUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\ClipPlaybackUI.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAADYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T23:31:52.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ARClipRecorder.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAAEAAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T23:22:06.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HazardFormUI.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\HazardFormUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HazardFormUI.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\HazardFormUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HazardFormUI.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAADgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T09:56:52.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppStateManager.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T17:18:57.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LeaderPortalOpener.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\LeaderPortalOpener.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LeaderPortalOpener.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\LeaderPortalOpener.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LeaderPortalOpener.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T10:48:33.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DisplayCapturedImage.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\DisplayCapturedImage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\DisplayCapturedImage.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\DisplayCapturedImage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\DisplayCapturedImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T17:26:38.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ARPlacementManager.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\ARPlacementManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\ARPlacementManager.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\Scripts 1\\ARPlacementManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\ARPlacementManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T19:30:12.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReportDetailsUI.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\ReportDetailsUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ReportDetailsUI.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\ReportDetailsUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ReportDetailsUI.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAAFkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T14:30:19.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ManagersBootstrap.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\ManagersBootstrap.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ManagersBootstrap.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\ManagersBootstrap.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ManagersBootstrap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T14:10:06.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UIFlowManager.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\UIFlowManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UIFlowManager.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\UIFlowManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UIFlowManager.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAMwAYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T09:07:55.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReportManager.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\ReportManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ReportManager.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\ReportManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ReportManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T08:50:50.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FirebaseInit.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\FirebaseInit.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FirebaseInit.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\FirebaseInit.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FirebaseInit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T08:46:18.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LocationManager.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\LocationManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LocationManager.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\SafePoint_Citizen\\Assets\\Scripts\\LocationManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LocationManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T08:42:24.441Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

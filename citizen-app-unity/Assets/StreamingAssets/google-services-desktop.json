@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "93770216100",
+    "project_id": "safepoint-ab3f4",
+    "storage_bucket": "safepoint-ab3f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93770216100:android:85f700bc142c816fa6ec31",
+        "android_client_info": {
+          "package_name": "Gak.Company"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93770216100-k0mitioti6vd0j0eegrekqn7tpc8l29m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA83ekPzEKOuVQPxqf_7iyIuLNBXMDXdTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93770216100-k0mitioti6vd0j0eegrekqn7tpc8l29m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
