@@ -248,20 +248,21 @@ firebase deploy
 
 ## PART E — System Verification Checklist
 After full deployment:
-✔ Citizen AR placement works
-✔ Clip recording completes
-✔ Submission creates Firestore document
-✔ Leader sees report in real time
-✔ Map marker renders
-✔ Status updates persist
-✔ Escalation saves authorityName + leaderComment
-✔ Monthly summary calculates totals
-✔ PDF export generates correctly
+ Citizen AR placement works
+ Clip recording completes
+ Submission creates Firestore document
+ Leader sees report in real time
+ Map marker renders
+ Status updates persist
+ Escalation saves authorityName + leaderComment
+ Monthly summary calculates totals
+ PDF export generates correctly
 If all above are confirmed, the system is fully operational.
 
 ## 18. Notes on Extensibility
 videoUrl  fields are reserved for future media storage integration.
 Firestore rules should be hardened before production.
 Firebase Storage can be integrated for full clip streaming if billing is enabled.
+
 
 
