@@ -1,0 +1,11 @@
+
+
+@media (max-width: 960px) {
+  .sp-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sp-mapwrap {
+    height: 420px !important;
+  }
+}

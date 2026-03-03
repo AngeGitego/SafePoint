@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "safepoint-ab3f4"
+  },
+  "targets": {
+    "safepoint-ab3f4": {
+      "hosting": {
+        "default": [
+          "safepoint-ab3f4"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
