@@ -1,277 +1,172 @@
 
-# SafePoint – Deployment Guide
+# System Deployment
 
+## Overview
 
-## 1. System Overview
+The SafePoint system consists of two main components:
 
-SafePoint consists of two primary components:
+1. **Citizen Mobile Application** – built using Unity and deployed as an Android APK.
+2. **Leader Monitoring Dashboard** – built using React and deployed as a web application.
 
-1. Citizen AR Mobile Application (Unity – Android)
-2. Leader Web Dashboard (React + Firebase)
+These components are connected through a **Firebase Firestore cloud database**, which enables real-time synchronization between the mobile application and the dashboard.
 
-Both components connect to the same Firebase Firestore backend.
-
-
-
-# PART A — Firebase Backend Setup
-
-## 2. Create Firebase Project
-
-1. Go to https://console.firebase.google.com
-2. Click “Add Project”
-3. Enter project name (e.g., SafePoint)
-4. Disable Google Analytics (optional)
-5. Create project
+This document describes how each part of the system is deployed and made operational.
 
 
 
-## 3. Enable Firestore Database
+# Mobile Application Deployment
 
-1. Navigate to **Build → Firestore Database**
-2. Click **Create Database**
-3. Choose:
-   - Mode: Start in test mode (for development)
-   - Location: Select closest region
-4. Finish setup
+## Building the Citizen Application
 
+The SafePoint citizen application is built using **Unity with AR Foundation** and targets Android devices.
 
+### Build Configuration
 
-## 4. Firestore Rules
+The following configuration was used for building the application:
 
-Replace default rules with the following (development configuration):
+* Platform: **Android**
+* Rendering Pipeline: **Universal Render Pipeline (URP)**
+* AR Framework: **AR Foundation**
+* AR Provider: **ARCore**
 
-```js
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
+### Build Process
 
-    match /reports/{document} {
-      allow read, write: if true;
-    }
+To generate the Android application package:
 
-    match /leaders/{document} {
-      allow read, write: if true;
-    }
+1. Open the Unity project.
+2. Navigate to **File → Build Settings**.
+3. Select **Android** as the target platform.
+4. Ensure the required scenes are included in the build.
+5. Click **Build**.
 
-    match /cells/{document} {
-      allow read, write: if true;
-    }
-  }
-}
-```
-For production deployment, these rules must be restricted.
-
-## 5. Required Collections
-Create the following collections manually in Firestore:
-
-## 5.1 cells
-Each document should contain:
-district: string
-sector: string
-cellName: string
-cellId: string  // FORMAT: DISTRICT|SECTOR|CELL
-
-Example:
-GASABO|KIMIRONKO|KIBAGABAGA
-
-
-## 5.2 leaders
-Each document:
-name: string
-email: string
-district: string
-sector: string
-cellName: string
-cellId: string
-phone:number
-
-Ensure the cellId matches one in cells.
-
-## 5.3 reports
-Created automatically by the citizen app.
-Fields include:
-cellId
-district
-sector
-cellName
-category
-description
-lat
-lng
-status
-timestamp
-authorityName
-leaderComment
-videoUrl
+Unity then generates an **APK file** that can be installed on Android devices.
 
 
 
-## PART B — Citizen AR App Deployment (Unity)
-##6. Requirements
-Unity 6 (6000.0.44f1)
-Android Build Support module
-Android SDK & NDK (installed via Unity Hub)
-Physical Android device (ARCore supported)
+## Installing the Application
 
-## 7. Open Project
-Open Unity Hub
-Add project from:
-citizen-app-unity/
+Once the APK is generated, the application can be installed on an Android device.
 
+Steps:
 
-Open project
+1. Transfer the APK file to the Android device.
+2. Enable installation from **unknown sources** if required.
+3. Open the APK file on the device.
+4. Install the SafePoint application.
 
-## 8. Configure Firebase (Unity)
-In Firebase Console:
-Add Android app
-Register package name (must match Unity Player Settings)
-Download google-services.json
-Place google-services.json inside:
-citizen-app-unity/Assets/
+After installation, the application can be launched normally from the device's application menu.
 
 
-Ensure Firebase SDK for Unity is imported.
+# Leader Dashboard Deployment
 
-## 9. Android Build Configuration
-File → Build Settings
-Switch Platform → Android
-Player Settings:
-Minimum API Level: 24 or higher (recommended)
-Scripting Backend: IL2CPP
-ARM64 enabled
-Enable:(If available)
-Internet Permission
-Camera Permission
-Location Permission
+## Dashboard Overview
 
-## 10. Build APK
-Connect Android device (USB debugging enabled)
-Click:
-Build And Run
+The leader dashboard is a **web-based interface** used by local leaders to monitor and manage hazard reports submitted by citizens.
 
+The dashboard was built using:
 
-Generate:
-SafePoint.apk
-
-
-Copy APK to:
-artifacts/SafePoint.apk
+* React
+* Firebase SDK
+* JavaScript
+* Leaflet for map visualization
 
 
 
-## 11. Verify Citizen App
-Launch app on device
-Place AR marker
-Record 5-second clip
-Fill form and submit
-Confirm Firestore document creation
-Verification evidence:
-Screenshot of Firestore reports collection
-Screenshot of successful submission message
+## Preparing the Dashboard for Deployment
 
-## PART C — Leader Web Dashboard Deployment
-##12. Requirements
-Node.js (v18+ recommended)
-npm
-Firebase project (same as Unity app)
+Before deployment, the dashboard application must be built for production.
 
-## 13. Configure Environment Variables
-Inside:
-leader-dashboard-web/
+Navigate to the dashboard project directory and run:
 
-Create a file:
-.env
-
-Based on .env.example:
-VITE_FIREBASE_API_KEY=
-VITE_FIREBASE_AUTH_DOMAIN=
-VITE_FIREBASE_PROJECT_ID=
-VITE_FIREBASE_STORAGE_BUCKET=
-VITE_FIREBASE_MESSAGING_SENDER_ID=
-VITE_FIREBASE_APP_ID=
-
-Values can be copied from Firebase Console → Project Settings.
-
-## 14. Install Dependencies
-cd leader-dashboard-web
+```id="shtz7h"
 npm install
+```
 
+Then generate the production build:
 
-## 15. Run Locally
-npm run dev
-
-Open:
-http://localhost:5173
-
-
-## 16. Leader Authentication
-Enable Email/Password authentication in Firebase Console
-Create leader accounts manually in Firebase Authentication
-Ensure corresponding leader document exists in leaders collection
-
-## 17. Verify Dashboard Functionality
-After citizen submits report:
-Log in as leader
-Confirm:
-Report appears automatically
-Map marker renders (if GPS present)
-Status update works
-Escalation modal works
-Monthly summary generates
-PDF export downloads
-Save exported PDF to:
-artifacts/pdf-samples/monthly-summary-sample.pdf
-
-
-## PART D — Deployed Dashboard (Production)
-If deploying publicly (recommended):
-##Option A: Vercel
-Push repository to GitHub
-Import project into Vercel
-Add environment variables
-Deploy
-##Option B: Firebase Hosting
-Install Firebase CLI
-Run:
-firebase init hosting
-
-
-Build project:
+```id="pg5k7z"
 npm run build
+```
+
+This command creates an optimized build of the application suitable for deployment.
 
 
-Deploy:
-firebase deploy
+
+## Hosting the Dashboard
+
+The dashboard can be deployed using a standard web hosting platform.
+
+Possible hosting options include:
+
+* Firebase Hosting
+* Vercel
+* Netlify
+* traditional web servers
+
+For this project, the dashboard was deployed online so that leaders can access it through a web browser.
+
+This allows leaders to monitor hazard reports without installing any additional software.
 
 
-(Deployed URL  included in README).
 
-## PART E — System Verification Checklist
-After full deployment:
- - Citizen AR placement works
+# Cloud Backend Deployment
 
- - Clip recording completes
+The SafePoint system uses **Firebase Firestore** as the central backend database.
 
- - Submission creates Firestore document
+Firestore stores all hazard reports submitted by the mobile application.
 
- - Leader sees report in real time
+Each report includes:
 
- - Map marker renders
+* report ID
+* hazard category
+* description
+* cell identifier
+* GPS coordinates (if available)
+* timestamp
+* report status
 
- - Status updates persist
+Because Firestore is a managed cloud service, no manual server deployment was required.
 
- - Escalation saves authorityName + leaderComment
+Once the Firebase project was configured, both the mobile application and dashboard could connect to the database using the Firebase SDK.
 
- - Monthly summary calculates totals
 
- - PDF export generates correctly
 
-If all above are confirmed, the system is fully operational.
+# System Integration
 
-## 18. Notes on Extensibility
-videoUrl  fields are reserved for future media storage integration.
-Firestore rules should be hardened before production.
-Firebase Storage can be integrated for full clip streaming if billing is enabled.
+After deployment, the SafePoint ecosystem functions as follows:
+
+1. Citizens report hazards through the **mobile AR application**.
+2. Reports are stored in the **Firebase Firestore database**.
+3. The **leader dashboard** retrieves and displays the reports.
+4. Leaders can review and manage hazards through the dashboard interface.
+
+This architecture enables a **real-time reporting workflow** connecting citizens and local authorities.
+
+
+
+# Deployment Verification
+
+After deployment, the following checks were performed to verify that the system operates correctly:
+
+* The mobile application installs successfully on Android devices.
+* AR hazard placement functions correctly on supported devices.
+* Hazard reports are stored in Firestore.
+* The leader dashboard displays submitted reports.
+* WhatsApp sharing functionality works as expected.
+
+All deployment components functioned successfully, confirming that the SafePoint ecosystem operates as a complete hazard reporting platform.
+
+
+
+# Summary
+
+The SafePoint system was successfully deployed as a working ecosystem consisting of:
+
+* an Android-based AR reporting application
+* a cloud database backend
+* a web-based monitoring dashboard
+
+This deployment allows citizens to report hazards and enables leaders to monitor and manage those reports in real time.
 
 
 
