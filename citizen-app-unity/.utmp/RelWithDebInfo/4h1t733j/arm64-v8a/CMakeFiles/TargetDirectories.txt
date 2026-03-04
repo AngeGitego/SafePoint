@@ -1,0 +1,5 @@
+C:/Users/pc/Desktop/Safe-point/citizen-app-unity/.utmp/RelWithDebInfo/4h1t733j/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/pc/Desktop/Safe-point/citizen-app-unity/.utmp/RelWithDebInfo/4h1t733j/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/pc/Desktop/Safe-point/citizen-app-unity/.utmp/RelWithDebInfo/4h1t733j/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/pc/Desktop/Safe-point/citizen-app-unity/.utmp/RelWithDebInfo/4h1t733j/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/pc/Desktop/Safe-point/citizen-app-unity/.utmp/RelWithDebInfo/4h1t733j/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

@@ -45,6 +45,9 @@ export default function LoginPage() {
     <div style={styles.page}>
       <div style={styles.card}>
         <h1 style={styles.title}>Welcome back!</h1>
+        <p style={styles.subtitle}>
+  Sign in to access your SafePoint Leader Dashboard.
+</p>
 
         <form onSubmit={onSubmit} style={styles.form}>
           <input
@@ -64,9 +67,15 @@ export default function LoginPage() {
             autoComplete="current-password"
           />
 
-          <button style={styles.button} disabled={loading || !email || !password}>
-            {loading ? "Signing in..." : "Access My Dashboard"}
-          </button>
+          <button
+  style={{
+    ...styles.button,
+    ...(loading || !email || !password ? styles.buttonDisabled : {}),
+  }}
+  disabled={loading || !email || !password}
+>
+  {loading ? "Signing in..." : "Access My Dashboard"}
+</button>
 <button type="button" onClick={handleResetPassword} style={styles.linkBtn}>
   Forgot Password?
 </button>
@@ -76,7 +85,7 @@ export default function LoginPage() {
         </form>
 
         <p style={styles.note}>
-          Prototype login using Firebase Email/Password.
+          
         </p>
       </div>
     </div>
@@ -88,61 +97,107 @@ const styles = {
     minHeight: "100vh",
     display: "grid",
     placeItems: "center",
-    background: "#1b1530",
     padding: 24,
+    background:
+      "radial-gradient(1200px 600px at 10% 10%, rgba(122,31,162,.25), transparent), #0b0b14",
+    color: "white",
   },
+
   card: {
     width: "100%",
-    maxWidth: 420,
-    background: "#4a2e2e",
+    maxWidth: 440,
+    padding: 26,
     borderRadius: 18,
-    padding: 24,
-    boxShadow: "0 12px 40px rgba(0,0,0,.35)",
+    background: "linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03))",
+    border: "1px solid rgba(255,255,255,.10)",
+    boxShadow: "0 14px 45px rgba(0,0,0,.55)",
   },
+
   title: {
     color: "white",
-    fontSize: 32,
-    margin: "0 0 18px 0",
-    fontWeight: 700,
+    fontSize: 30,
+    margin: 0,
+    fontWeight: 900,
+    letterSpacing: 0.2,
   },
-  form: { display: "grid", gap: 12 },
-  input: {
-    width: "100%",
-    padding: "12px 14px",
-    borderRadius: 10,
-    border: "1px solid rgba(255,255,255,.1)",
-    outline: "none",
-    background: "#1f1f1f",
-    color: "white",
-    fontSize: 14,
-  },
-  linkBtn: {
-  background: "transparent",
-  border: "none",
-  color: "rgba(255,255,255,.85)",
-  cursor: "pointer",
-  marginTop: 10,
-  textDecoration: "underline",
-  fontWeight: 700,
-},
 
-success: {
-  color: "rgba(120,255,170,.9)",
-  marginTop: 10,
-  fontSize: 13,
-  fontWeight: 700,
+  subtitle: {
+    marginTop: 8,
+    marginBottom: 18,
+    color: "rgba(255,255,255,.70)",
+    fontSize: 13,
+    lineHeight: 1.4,
+  },
+
+  form: { display: "grid", gap: 12 },
+
+  input: {
+  width: "100%",
+  padding: "12px 14px",
+  borderRadius: 12,
+  border: "1px solid rgba(255,255,255,.14)",
+  outline: "none",
+  background: "rgba(255,255,255,.06)",
+  color: "white",
+  fontSize: 14,
+  boxSizing: "border-box"   // ✅ This fixes the overflow
 },
   button: {
-    marginTop: 8,
-    width: "100%",
-    padding: "12px 14px",
-    borderRadius: 10,
-    border: "none",
-    background: "#7A1FA2",
-    color: "white",
-    fontWeight: 700,
-    cursor: "pointer",
+  marginTop: 8,
+  width: "100%",
+  padding: "12px 14px",
+  borderRadius: 12,
+  border: "1px solid rgba(255,255,255,.10)",
+  background: "linear-gradient(180deg, #8B3DFF, #6E2BD9)",
+  color: "white",
+  fontWeight: 900,
+  cursor: "pointer",
+  letterSpacing: 0.2,
+  boxSizing: "border-box"
+},
+
+  buttonDisabled: {
+    opacity: 0.55,
+    cursor: "not-allowed",
   },
-  error: { color: "#ffb4b4", margin: "6px 0 0 0", fontSize: 13 },
-  note: { color: "rgba(255,255,255,.75)", marginTop: 14, fontSize: 12 },
+
+  linkBtn: {
+    background: "transparent",
+    border: "none",
+    color: "rgba(255,255,255,.80)",
+    cursor: "pointer",
+    marginTop: 10,
+    textDecoration: "underline",
+    fontWeight: 800,
+    justifySelf: "start",
+    padding: 0,
+  },
+
+  success: {
+    marginTop: 10,
+    padding: "10px 12px",
+    borderRadius: 12,
+    background: "rgba(120,255,170,.10)",
+    border: "1px solid rgba(120,255,170,.25)",
+    color: "rgba(120,255,170,.95)",
+    fontSize: 13,
+    fontWeight: 800,
+  },
+
+  error: {
+    marginTop: 10,
+    padding: "10px 12px",
+    borderRadius: 12,
+    background: "rgba(255,140,140,.10)",
+    border: "1px solid rgba(255,140,140,.22)",
+    color: "#ffb4b4",
+    fontSize: 13,
+    fontWeight: 800,
+  },
+
+  note: {
+    color: "rgba(255,255,255,.55)",
+    marginTop: 14,
+    fontSize: 11,
+  },
 };

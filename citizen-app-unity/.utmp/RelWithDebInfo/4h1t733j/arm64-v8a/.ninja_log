@@ -1,0 +1,10 @@
+# ninja log v5
+54	13459	7942737100080575	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	f50f3ea55c997355
+1	13533	7942737100549328	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	de741a84ec5c7ae6
+156	13566	7942737100190289	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	f01256e722e7ec68
+18	13633	7942737102405105	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	76266da53dac13d1
+69	14481	7942737111082747	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c2bcddab29b7c0b2
+35	14880	7942737115162630	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	399352367771a93f
+13534	16897	7942737135333014	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	5cac74b6d744aa97
+13482	17225	7942737138685661	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2a1ac169a77db562
+17226	17546	7942737142003407	C:/Users/pc/Desktop/Safe-point/citizen-app-unity/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4h1t733j/obj/arm64-v8a/libgame.so	44bc387b8f07127d

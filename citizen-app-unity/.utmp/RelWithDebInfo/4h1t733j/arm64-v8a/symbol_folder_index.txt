@@ -1,0 +1,1 @@
+C:\Users\pc\Desktop\Safe-point\citizen-app-unity\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\4h1t733j\obj\arm64-v8a

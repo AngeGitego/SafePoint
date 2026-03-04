@@ -66,3 +66,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* If your body is display:flex from a template, this makes #root expand */
+body {
+  min-height: 100vh;
+}
+#root {
+  flex: 1;
+}

@@ -9,16 +9,20 @@ using Firebase.Firestore;
 public class SubmitReportTMP : MonoBehaviour
 {
     [Header("UI (TMP)")]
-    public TMP_Dropdown hazardDropdown;        // category
-    public TMP_InputField descriptionInput;    // description
+    public TMP_Dropdown hazardDropdown;
+    public TMP_InputField descriptionInput;
 
     public TMP_Dropdown districtDropdown;
     public TMP_Dropdown sectorDropdown;
     public TMP_Dropdown cellDropdown;
 
-    public TMP_Text cellIdText;               // shows computed cellId
-    public TMP_Text gpsText;                  // shows lat/lng status (optional)
-    public TMP_Text statusText;               // "Submitting..." etc (optional)
+    public TMP_Text cellIdText;
+    public TMP_Text gpsText;
+    public TMP_Text statusText;
+
+    [Header("Optional UI")]
+    public TMP_Text reportIdText;
+    public Button shareWhatsAppButton;
 
     public Button submitButton;
 
@@ -27,29 +31,30 @@ public class SubmitReportTMP : MonoBehaviour
     public float gpsRefreshSeconds = 2f;
     public float desiredAccuracyMeters = 10f;
 
-    // Current GPS
     private double lat = 0;
     private double lng = 0;
     private bool gpsReady = false;
 
     private bool isSubmitting = false;
-
+    private string reportId = "";
 
     void Start()
     {
-        // 1) Button hookup
+        reportId = NewReportId();
+        UpdateReportIdUI();
+
         if (submitButton != null)
             submitButton.onClick.AddListener(OnSubmitClicked);
 
-        // 2) Initial UI
+        if (shareWhatsAppButton != null)
+            shareWhatsAppButton.onClick.AddListener(OnShareToWhatsAppClicked);
+
         UpdateCellIdUI();
         SetStatus("Ready.");
 
-        // 3) Start GPS
         StartCoroutine(GpsRoutine());
     }
 
-    // Hook this to District/Sector/Cell TMP_Dropdown OnValueChanged (Int)
     public void OnLocationDropdownChanged(int _)
     {
         UpdateCellIdUI();
@@ -67,12 +72,12 @@ public class SubmitReportTMP : MonoBehaviour
             cellIdText.text = string.IsNullOrEmpty(cellId) ? "-" : cellId;
     }
 
-    // ✅ SUBMIT BUTTON METHOD (wired in Start)
-    private async void OnSubmitClicked()
+    public void OnShareToWhatsAppClicked()
     {
-        if (isSubmitting) return;
+        if (string.IsNullOrWhiteSpace(reportId))
+            reportId = NewReportId();
+        UpdateReportIdUI();
 
-        // Read UI values
         string category = GetDropdownValue(hazardDropdown);
         string description = descriptionInput != null ? descriptionInput.text.Trim() : "";
 
@@ -80,10 +85,40 @@ public class SubmitReportTMP : MonoBehaviour
         string sector = GetDropdownValue(sectorDropdown);
         string cellName = GetDropdownValue(cellDropdown);
         string cellId = BuildCellId(district, sector, cellName);
+
+        string msg =
+            "SAFEPOINT REPORT\n" +
+            $"ID: {reportId}\n" +
+            (!string.IsNullOrWhiteSpace(cellId) ? $"Cell: {cellId}\n" : "") +
+            (!string.IsNullOrWhiteSpace(category) ? $"Category: {category}\n" : "") +
+            (!string.IsNullOrWhiteSpace(description) ? $"Details: {Truncate(description, 140)}\n" : "") +
+            "\nEvidence: attach the 5-sec screen recording video (Gallery / Screen recordings).\n" +
+            "Leader actions (resolve/escalate) are done in the Leader Portal.";
+
+        string url = "https://wa.me/?text=" + UnityEngine.Networking.UnityWebRequest.EscapeURL(msg);
+        Application.OpenURL(url);
+
+        SetStatus("WhatsApp opened. Share to your Cell group and attach the screen recording.");
+    }
+
+    private async void OnSubmitClicked()
+    {
+        if (isSubmitting) return;
+
+        if (string.IsNullOrWhiteSpace(reportId))
+            reportId = NewReportId();
+        UpdateReportIdUI();
+
+        string category = GetDropdownValue(hazardDropdown);
+        string description = descriptionInput != null ? descriptionInput.text.Trim() : "";
+
+        string district = GetDropdownValue(districtDropdown);
+        string sector = GetDropdownValue(sectorDropdown);
+        string cellName = GetDropdownValue(cellDropdown);
+        string cellId = BuildCellId(district, sector, cellName);
+
         bool hasGps = gpsReady && IsValidLatLng(lat, lng);
 
-
-        // Validate
         if (string.IsNullOrWhiteSpace(category) || category.Equals("Select", StringComparison.OrdinalIgnoreCase))
         {
             SetStatus("Pick hazard category.");
@@ -107,10 +142,10 @@ public class SubmitReportTMP : MonoBehaviour
 
         try
         {
-            // Build Firestore doc
             Dictionary<string, object> report = new Dictionary<string, object>
-
             {
+                { "reportId", reportId },
+
                 { "district", district },
                 { "sector", sector },
                 { "cellName", cellName },
@@ -119,21 +154,20 @@ public class SubmitReportTMP : MonoBehaviour
                 { "category", category },
                 { "description", description },
 
-
-{ "hasGps", hasGps },
-{ "lat", hasGps ? (object)lat : null },
-{ "lng", hasGps ? (object)lng : null },
+                { "hasGps", hasGps },
+                { "lat", hasGps ? (object)lat : null },
+                { "lng", hasGps ? (object)lng : null },
 
                 { "status", "PENDING" },
                 { "timestamp", Timestamp.GetCurrentTimestamp() },
 
-                // Placeholder until you enable Storage billing:
+                { "evidenceType", "screen_recording" },
                 { "videoUrl", "" }
             };
 
-            await FirebaseInit.DB.Collection("reports").AddAsync(report);
+            await FirebaseInit.DB.Collection("reports").Document(reportId).SetAsync(report);
 
-            SetStatus("Report submitted ✅");
+            SetStatus($"Report submitted ✅ (ID: {reportId})");
             ClearFormAfterSubmit();
         }
         catch (Exception e)
@@ -150,14 +184,27 @@ public class SubmitReportTMP : MonoBehaviour
     private void ClearFormAfterSubmit()
     {
         if (descriptionInput != null) descriptionInput.text = "";
-        // Keep dropdowns selected so user can submit multiple quickly
+        reportId = NewReportId();
+        UpdateReportIdUI();
+    }
+
+    private string NewReportId() => Guid.NewGuid().ToString("N");
+
+    private void UpdateReportIdUI()
+    {
+        if (reportIdText != null)
+            reportIdText.text = string.IsNullOrWhiteSpace(reportId) ? "-" : reportId;
+    }
+
+    private string Truncate(string s, int max)
+    {
+        if (string.IsNullOrEmpty(s)) return "";
+        return s.Length <= max ? s : s.Substring(0, max) + "...";
     }
 
     // ---------------- GPS ----------------
-
     private IEnumerator GpsRoutine()
     {
-        // Check permission/services
         if (!Input.location.isEnabledByUser)
         {
             gpsReady = false;
@@ -182,7 +229,6 @@ public class SubmitReportTMP : MonoBehaviour
             yield break;
         }
 
-        // Running: refresh periodically
         gpsReady = true;
 
         while (true)
@@ -192,7 +238,6 @@ public class SubmitReportTMP : MonoBehaviour
             lng = data.longitude;
 
             SetGpsText($"GPS ✅ {lat:F6}, {lng:F6}");
-
             yield return new WaitForSeconds(gpsRefreshSeconds);
         }
     }
@@ -210,7 +255,6 @@ public class SubmitReportTMP : MonoBehaviour
     }
 
     // ---------------- Helpers ----------------
-
     private string GetDropdownValue(TMP_Dropdown dd)
     {
         if (dd == null || dd.options == null || dd.options.Count == 0) return "";
@@ -219,7 +263,6 @@ public class SubmitReportTMP : MonoBehaviour
 
     private string BuildCellId(string district, string sector, string cellName)
     {
-        // DISTRICT|SECTOR|CELLNAME (upper, remove spaces)
         string D = NormalizeKey(district);
         string S = NormalizeKey(sector);
         string C = NormalizeKey(cellName);
