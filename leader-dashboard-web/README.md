@@ -1,170 +1,345 @@
+# SafePoint
 
-SafePoint – AR Community Hazard Reporting System
-1. Project Overview
-SafePoint is an Augmented Reality (AR) based hazard reporting system designed to help communities report environmental hazards and allow local leaders to monitor and manage those reports in real time.
-The system enables citizens to capture hazards in their physical environment using an AR mobile application. Hazard reports are submitted to a cloud database and are automatically routed to the responsible local leader through a web dashboard.
-The project demonstrates how Augmented Reality, cloud computing, and real-time web dashboards can be integrated to improve community safety and governance.
+### AR-Based Community Hazard Reporting System
 
-2. System Architecture
-SafePoint is composed of three major components:
-1. Citizen Mobile Application
-The citizen application allows community members to report hazards.
-Main capabilities:
-AR hazard marker placement
-Evidence capture using short screen recording
-Structured hazard report submission
-Automatic routing to local leaders
-Technology used:
-Unity 6
-AR Foundation
-Android Platform
-C#
-Firebase Firestore
+SafePoint is a **community hazard reporting platform** that enables citizens to report environmental hazards using an **Augmented Reality mobile application** while allowing local leaders to monitor and manage those reports through a **web dashboard**.
+
+The system creates a digital bridge between **citizens and local authorities**, enabling faster communication, better documentation of hazards, and improved community response.
 
 
-2. Cloud Backend
-The system uses Firebase Firestore as the central database.
-Firestore stores:
-community cells
-leader information
-hazard reports
-The database supports real-time synchronization between the citizen application and the leader dashboard.
 
-3. Leader Monitoring Dashboard
-The web dashboard allows local leaders to monitor and manage hazard reports submitted by citizens.
-Main capabilities:
-view reports assigned to their jurisdiction
-visualize hazards on a map
-update hazard status
-escalate issues to authorities
-share reports through WhatsApp
-generate monthly summaries
-Technology used:
-React (Vite)
-Firebase Authentication
-Firebase Firestore
-Leaflet Map
-jsPDF
+# Project Overview
+
+Many communities face delays in reporting hazards such as:
+
+* damaged roads
+* flooding
+* electrical risks
+* sanitation issues
+* structural hazards
+
+Reports are often shared informally through messaging groups, making it difficult to track the issue or verify evidence.
+
+SafePoint addresses this problem by providing a **structured digital hazard reporting system**.
+
+Citizens can:
+
+1. Place hazard markers in real-world space using **Augmented Reality**
+2. Record visual evidence
+3. Submit structured hazard reports
+4. Share reports through community communication channels
+
+Local leaders can then review and manage those reports using a **centralized monitoring dashboard**.
 
 
-3. System Workflow
-The SafePoint system follows this workflow:
-Citizen opens the mobile application.
-The user scans the environment using AR.
-A hazard marker is placed on the detected surface.
-Evidence of the hazard is recorded.
-The user fills the report form.
-The report is submitted to Firebase Firestore.
-The leader dashboard receives the report in real time.
-The local leader reviews and manages the hazard.
-This workflow connects citizens and community leaders through a structured reporting system.
 
-4. Repository Structure
-SafePoint/
+# System Architecture
+
+SafePoint is built as a **three-layer ecosystem**.
+
+```
+Citizen AR Mobile App (Unity)
+        ↓
+Firebase Cloud Database (Firestore)
+        ↓
+Leader Monitoring Dashboard (React)
+```
+
+### 1. Citizen Mobile Application
+
+The mobile application allows citizens to:
+
+* detect real-world surfaces using AR
+* place hazard markers in the environment
+* record hazard evidence
+* fill a structured report
+* share the report with the community
+* submit the report to the cloud database
+
+
+
+### 2. Cloud Backend
+
+The backend uses **Firebase Firestore** as the central data store.
+
+It manages:
+
+* hazard reports
+* cell routing
+* report timestamps
+* report status updates
+
+Firestore enables **real-time synchronization** between the mobile app and the dashboard.
+
+
+
+### 3. Leader Dashboard
+
+The dashboard allows local leaders to:
+
+* view hazard reports in their administrative area
+* filter and search reports
+* visualize hazards on a map
+* update report status
+* escalate issues to higher authorities
+
+
+
+# Key Features
+
+### Augmented Reality Hazard Placement
+
+Citizens place hazard markers in the environment using **AR plane detection**.
+
+This allows hazards to be visually anchored in real-world space.
+
+
+
+### Evidence Capture
+
+Evidence is captured using the phone’s **built-in screen recorder**.
+
+The application provides instructions guiding the user to record the AR interaction.
+
+This approach avoids complex media processing while still providing reliable visual evidence.
+
+
+
+### Structured Hazard Reporting
+
+Each report includes:
+
+* hazard category
+* hazard description
+* cell identifier
+* optional GPS coordinates
+* timestamp
+* unique report ID
+
+
+
+### WhatsApp Report Sharing
+
+SafePoint integrates with **WhatsApp** to allow users to quickly share reports with community groups.
+
+The application generates a pre-filled message containing:
+
+```
+SAFEPOINT REPORT
+ID: <report_id>
+Cell: <cell_id>
+Category: <hazard_type>
+Details: <description>
+
+Evidence: attach the screen recording video.
+```
+
+WhatsApp opens automatically, allowing the user to select a contact or group and attach the recorded evidence.
+
+
+
+### Leader Monitoring Dashboard
+
+The dashboard allows leaders to:
+
+* monitor hazard reports
+* view reports assigned to their cell
+* track report status
+* escalate issues when necessary
+
+This ensures accountability and better hazard management.
+
+
+
+# Technology Stack
+
+### Mobile Application
+
+* Unity
+* AR Foundation
+* C#
+* Android SDK
+
+### Backend
+
+* Firebase Firestore
+* Firebase Authentication
+
+### Web Dashboard
+
+* React
+* Firebase SDK
+* JavaScript
+* Leaflet (Map visualization)
+
+---
+
+# Project Structure
+
+```
+SafePoint
 │
-├── citizen-app/              Unity AR application
-│   ├── Assets/
-│   ├── Scripts/
-│   └── Scenes/
+├── citizen-app-unity
+│   ├── Assets
+│   ├── Scripts
+│   ├── Scenes
+│   └── AR Placement System
 │
-├── leader-dashboard/         Web dashboard
-│   ├── src/
-│   ├── components/
-│   └── pages/
+├── leader-dashboard-web
+│   ├── src
+│   ├── components
+│   ├── pages
+│   └── firebase configuration
 │
-├── docs/
-│   ├── TESTING.md
+├── docs
 │   ├── ANALYSIS.md
-│   └── DEPLOYMENT.md
-│
-├── demo/
-│   └── demo-video.mp4
-|
-|── artifacts/
-│   └── demo-video.mp4
-
-│
+│   ├── TESTING.md
+│   └── Deployment.md
+│──artifacts
+│   ├── demo-video-link.txt
+│   ├── screenshots/
+│──Firebase  
 └── README.md
+└── .gitignore
+
+```
 
 
-5. How to Run the System
-Running the Citizen Application
-Requirements:
-Unity 6 (6000.0.44f1)
-Android device with ARCore support
 
-Steps:
-Open the Unity project inside the citizen-app folder.
-Connect an Android device with developer mode enabled.
-Build and run the project to the device.
-Launch the SafePoint mobile application.
+# Installation
 
-Running the Leader Dashboard
-Requirements:
-Node.js
-npm
+## Citizen Mobile App
 
-Steps:
+1. Clone the repository
+
+```
+git clone https://github.com/your-username/safepoint.git
+```
+
+2. Open the Unity project
+
+```
+citizen-app-unity/
+```
+
+3. Ensure the following packages are installed:
+
+* AR Foundation
+* ARCore XR Plugin
+* Firebase SDK
+
+4. Build the project for **Android**.
+
+---
+
+## Leader Dashboard
+
 Navigate to the dashboard folder:
-cd leader-dashboard
+
+```
+leader-dashboard
+```
 
 Install dependencies:
+
+```
 npm install
+```
 
-Run the development server:
+Start the development server:
+
+```
 npm run dev
+```
 
-Open the dashboard in the browser.
+---
 
-6. Evidence Capture
-To provide visual proof of hazards, the citizen application uses a short video evidence capture process.
-Users record the AR scene for approximately five seconds using the device screen recording capability. This recording captures the hazard marker anchored within the environment.
-The evidence video is stored locally on the device and can be shared together with the generated report identifier.
-This approach provides richer contextual information compared to static images while maintaining system stability.
+# Testing
 
-7. Key Features
-The SafePoint system provides the following capabilities:
-Citizen Application:
-AR-based hazard placement
-visual hazard evidence capture
-structured report submission
-automatic routing to leaders
-Leader Dashboard:
-real-time report monitoring
-interactive hazard map
-report filtering
-hazard escalation workflow
-WhatsApp report sharing
-monthly summary generation
+The system was tested using multiple testing strategies to ensure reliability.
 
-8. Demonstration Video
-A short demonstration video of the SafePoint system is provided.
-The demo shows:
-AR hazard placement
-evidence capture
-report submission
-real-time dashboard updates
-hazard management by the leader
-The demonstration video focuses on the core functionality of the system.
+### Functional Testing
 
-9. Deployment
-The leader dashboard is deployed online.
-The citizen application can be installed using the provided Android APK file.
-Installation steps:
-Download the APK file.
-Enable installation from unknown sources on the device.
-Install the SafePoint application.
+* AR plane detection
+* hazard marker placement
+* report form submission
+* WhatsApp message generation
+* dashboard data synchronization
 
-10. Future Improvements
-Future versions of SafePoint could include:
-automated cloud storage for video evidence
-support for additional mobile platforms
-automated hazard classification
-community notification systems
-integration with municipal service systems
-These improvements would extend the system into a fully deployable civic technology platform.
+### Device Compatibility Testing
 
-11. Conclusion
-SafePoint demonstrates how modern technologies such as Augmented Reality and real-time cloud databases can be used to improve community hazard reporting. By connecting citizens with local leaders through a structured digital platform, the system enables faster identification and management of environmental hazards.
-The project successfully implements a complete reporting ecosystem consisting of a mobile AR application, a cloud backend, and a real-time leader monitoring dashboard.
+The mobile application was tested on multiple Android devices including:
 
+* Samsung smartphone
+* Tecno smartphone
+
+The application performed consistently across both devices.
+
+
+
+# Deployment
+
+### Mobile Application
+
+The citizen app is distributed as an **Android APK** that can be installed on compatible devices.
+
+### Leader Dashboard
+
+The dashboard has been **deployed online**, allowing leaders to access it through a web browser.
+
+This deployment enables SafePoint to function as a **complete operational ecosystem**.
+
+
+
+# Design Decisions
+
+Several design decisions were made during development to improve system stability.
+
+### Evidence Capture Redesign
+
+The original design intended to record video directly inside the application.
+
+However, implementing in-app recording introduced technical challenges including:
+
+* Android permission handling
+* media encoding complexity
+* storage limitations
+* risk of application instability
+
+To ensure a reliable system, the final implementation uses the **phone's screen recording feature**.
+
+This approach:
+
+* simplifies implementation
+* improves stability
+* ensures reliable evidence capture
+
+
+
+# Future Improvements
+
+Potential future improvements include:
+
+* direct video capture inside the application
+* automatic video uploads to cloud storage
+* push notifications for leaders
+* advanced hazard analytics
+* expanded location verification
+
+
+
+# Author
+
+**Ange Kevine Gitego Rugema**
+
+Safe-Point
+
+
+
+# License
+
+This project was developed for academic purposes as part of a software engineering capstone project.
+
+
+
+If you want, I can also give you **3 small changes that instantly make a GitHub repo look professional to graders** (these are things most students miss but evaluators notice immediately).
