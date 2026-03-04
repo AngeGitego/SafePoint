@@ -1,151 +1,223 @@
 
-1. Introduction
-Testing was conducted to verify that the SafePoint ecosystem functions correctly across different usage scenarios, data inputs, and hardware environments. The testing process focused on validating the reliability of the citizen mobile application, the cloud database infrastructure, and the leader monitoring dashboard.
-Multiple testing strategies were used to ensure that the system behaves correctly under realistic operational conditions. These strategies included functional testing, data variation testing, and cross-device performance testing.
-The objective of this testing phase was to confirm that the SafePoint system operates as a complete end-to-end hazard reporting solution.
 
-## 2. Functional Testing
-Functional testing focused on verifying that the core features of the system perform as expected.
-2.1 Application Navigation
-The navigation flow of the citizen application was tested to ensure that users can move between application scenes correctly.
-Tested navigation flow:
-IntroScene → ARScene → ReportDetailsScene
+# System Testing
 
-Expected behavior:
-IntroScene loads successfully.
-Users can navigate to the AR hazard reporting interface.
-After evidence capture, users can proceed to the report submission scene.
-Observed results:
-Scene transitions occurred correctly.
-No navigation errors occurred.
-UI elements responded correctly to user interaction.
+## Introduction
 
-## 2.2 AR Hazard Marker Placement
-The AR functionality was tested to verify that hazards can be placed within the physical environment.
-Testing procedure:
-The user scans the environment to detect horizontal surfaces.
-A hazard marker is placed on the detected plane.
-Multiple markers are placed to verify repeatability.
-Observed results:
-AR plane detection initialized successfully.
-Hazard markers were anchored correctly in the environment.
-Multiple markers could be placed without instability.
-This confirms that the AR subsystem operates correctly for hazard placement.
+Testing was conducted throughout the development of the SafePoint system to verify that all components function correctly and interact reliably. The objective of testing was to ensure that citizens can successfully report hazards through the mobile application and that those reports are correctly received and managed through the leader dashboard.
 
-## 2.3 Evidence Capture
-The system requires users to capture visual evidence of the hazard.
-Testing procedure:
-The user presses the Record Evidence button.
-The application initiates a guided 5-second recording window.
-The user records the AR scene using the device screen recorder.
-Observed results:
-The recording guidance system functioned correctly.
-The recording window allowed consistent capture of hazard context.
-Recorded evidence was successfully saved on the user device.
-This confirms that the system can reliably capture hazard evidence.
+Testing focused on the following aspects of the system:
 
-## 2.4 Hazard Report Submission
-The report submission functionality was tested to verify that hazard data is correctly stored in the cloud database.
-Testing procedure:
-Hazard category selected from dropdown.
-Description field populated.
-Location selected through district, sector, and cell dropdowns.
-Report submitted.
-Expected behavior:
-Report is written to Firestore.
-Report receives a unique identifier.
-Report status is initialized as PENDING.
-Observed results:
-All reports were successfully stored in the reports collection.
-Data fields were correctly populated.
-No submission failures occurred.
+* Augmented Reality hazard placement
+* Evidence capture workflow
+* Report creation and submission
+* WhatsApp message generation
+* Cloud database integration
+* Leader dashboard monitoring
+* Device compatibility
 
-## 3. Data Variation Testing
-To verify that the system handles different input scenarios, reports were submitted using various combinations of input values.
-Test scenarios included:
-Test Case
-Description
-Short Description
-Hazard reported with a short description
-Long Description
-Hazard reported with a detailed description
-Different Hazard Types
-Multiple hazard categories selected
-GPS Enabled
-Report submitted with location coordinates
-GPS Disabled
-Report submitted without location data
-Multiple Reports
-Multiple reports submitted consecutively
+Multiple testing strategies were used to evaluate both functionality and reliability.
 
-Observed results:
-All reports were accepted and stored correctly.
-No data corruption occurred.
-Dashboard rendered all reports correctly.
-This confirms that the system can process different input data scenarios without failure.
+---
 
-## 4. Cross-Device Testing
-To ensure compatibility across different hardware environments, the citizen application was tested on multiple Android devices.
-Device 1
-Device Model: Samsung Android Smartphone
-Operating System: Android
+# Testing Strategy
 
-Results:
-AR initialization successful
-Hazard placement stable
-Evidence capture functional
-Firestore submission successful
+The testing process included several approaches:
 
-Device 2
-Device Model: Tecno Android Smartphone
-Operating System: Android
+### Functional Testing
 
-Results:
-Application launched successfully
-AR plane detection operational
-Hazard placement functional
-Report submission completed successfully
+Functional testing verified that each system feature operates according to its intended behavior.
 
-Cross-Device Conclusion
-The SafePoint application performed consistently across devices from different manufacturers, demonstrating compatibility across varying Android hardware environments.
+### Data Variation Testing
 
-## 5. End-to-End System Testing
-End-to-end testing verified that the entire SafePoint ecosystem functions correctly as an integrated platform.
-Test workflow:
-Citizen places a hazard marker in AR.
-Evidence is recorded.
-Hazard report is submitted.
-Firestore stores the report.
-Leader dashboard receives the report.
-Leader reviews the hazard.
-Observed results:
-Reports appeared in the dashboard immediately after submission.
-Hazard details were displayed correctly.
-Map visualization displayed the hazard location when GPS was available.
-This confirms that the system components communicate successfully across the mobile application, cloud database, and web dashboard.
+Data variation testing ensured that the system could handle different input conditions such as varying descriptions, hazard categories, and missing location data.
 
-## 6. Leader Dashboard Functionality Testing
-The leader dashboard was tested to verify that leaders can manage reported hazards effectively.
-Tested actions:
-Viewing reports assigned to a specific cell
-Filtering hazard reports
-Resolving hazards
-Escalating hazards to external authorities
-Sharing reports through WhatsApp
-Observed results:
-Dashboard displayed all reports correctly.
-Status updates were reflected in real time.
-Escalation workflow operated correctly.
+### Device Compatibility Testing
 
-## 7. Performance Observations
-During testing, the following performance characteristics were observed:
-AR initialization typically completed within a few seconds.
-Hazard placement occurred instantly after plane detection.
-Firestore report submission completed within approximately 1–2 seconds.
-Dashboard updates appeared almost immediately due to real-time database synchronization.
-These results indicate that the system performs efficiently within normal usage conditions.
+Device testing ensured that the mobile application functions consistently across different Android devices.
 
-## 8. Testing Conclusion
-The testing process confirmed that the SafePoint system operates reliably across different scenarios and hardware environments. Functional features behaved as expected, the system handled varying input data without errors, and cross-device testing demonstrated consistent application performance.
-The successful completion of end-to-end testing confirms that SafePoint functions as a fully operational hazard reporting ecosystem connecting citizen reporting, cloud data storage, and leader monitoring tools.
+### Integration Testing
+
+Integration testing verified that the mobile application, cloud backend, and leader dashboard communicate correctly and synchronize data in real time.
+
+---
+
+# AR Hazard Placement Testing
+
+### Objective
+
+To verify that hazard markers can be correctly placed in the environment using augmented reality.
+
+### Test Procedure
+
+1. Launch the SafePoint mobile application.
+2. Navigate to the AR hazard reporting scene.
+3. Move the device to allow AR plane detection.
+4. Tap on a detected surface.
+5. Place a hazard marker.
+
+### Expected Result
+
+The hazard marker should appear anchored to the detected surface within the AR environment.
+
+### Observed Result
+
+The marker appeared correctly in the AR scene and remained anchored to the detected surface.
+
+---
+
+# Evidence Recording Workflow Testing
+
+### Objective
+
+To confirm that users can record visual evidence of hazards using the phone’s screen recording feature.
+
+### Test Procedure
+
+1. Open the AR reporting scene.
+2. Press the **Record** button.
+3. Follow the instruction panel guidance.
+4. Start the phone's built-in screen recorder.
+5. Record the hazard placement interaction.
+6. Stop recording.
+
+### Expected Result
+
+The recorded video should be saved locally in the device's screen recording gallery.
+
+### Observed Result
+
+The screen recording was successfully saved and clearly showed the AR hazard marker placement.
+
+---
+
+# Report Submission Testing
+
+### Objective
+
+To verify that hazard reports are correctly submitted to the cloud database.
+
+### Test Procedure
+
+1. Navigate to the report form.
+2. Select a hazard category.
+3. Enter a description.
+4. Confirm the cell identifier.
+5. Submit the report.
+
+### Expected Result
+
+The report should be stored in the Firestore database with the correct data fields.
+
+### Observed Result
+
+The report appeared in the database with the expected fields including category, description, timestamp, and report status.
+
+---
+
+# WhatsApp Sharing Testing
+
+### Objective
+
+To verify that the application generates a correct report message and opens WhatsApp.
+
+### Test Procedure
+
+1. Press the **Share to WhatsApp** button.
+2. Verify the generated message content.
+3. Select a WhatsApp contact or group.
+4. Attach the recorded evidence video manually.
+
+### Expected Result
+
+WhatsApp should open with a pre-filled report message containing the hazard information.
+
+### Observed Result
+
+WhatsApp opened successfully and displayed the correct message structure.
+
+---
+
+# Leader Dashboard Integration Testing
+
+### Objective
+
+To verify that submitted hazard reports appear correctly on the leader dashboard.
+
+### Test Procedure
+
+1. Submit a hazard report using the mobile application.
+2. Open the leader dashboard.
+3. Refresh the dashboard report list.
+
+### Expected Result
+
+The submitted report should appear on the dashboard and display the associated hazard information.
+
+### Observed Result
+
+Reports appeared correctly in the dashboard interface and could be viewed by the assigned leader.
+
+---
+
+# Device Compatibility Testing
+
+The SafePoint mobile application was tested on multiple Android devices to evaluate compatibility across different hardware environments.
+
+### Devices Tested
+
+* Samsung Android smartphone
+* Tecno Android smartphone
+
+### Results
+
+The application successfully performed the following tasks on both devices:
+
+* AR plane detection
+* hazard marker placement
+* evidence recording workflow
+* report submission
+* WhatsApp sharing
+
+No major compatibility issues were observed.
+
+---
+
+# Performance Observations
+
+During testing, the application demonstrated stable performance across different scenarios.
+
+Key observations included:
+
+* AR plane detection occurred within a few seconds of scanning the environment.
+* Hazard placement was responsive and accurate.
+* Report submission to Firestore completed within a short delay.
+* WhatsApp sharing was instantaneous.
+* The leader dashboard updated correctly when new reports were submitted.
+
+No crashes or major performance issues occurred during testing.
+
+---
+
+# Summary
+
+Testing confirmed that the SafePoint system successfully supports the full hazard reporting workflow.
+
+Citizens can:
+
+* place hazards using augmented reality
+* record visual evidence
+* create structured reports
+* share hazard information
+* submit reports to the cloud database
+
+Leaders can then monitor and manage these reports through the dashboard.
+
+The testing results demonstrate that the SafePoint system functions reliably across its core features and supports the intended community hazard reporting workflow.
+
+---
+
+## Final Status
+
+The SafePoint ecosystem was successfully tested across both the **mobile application** and the **leader dashboard**, confirming that the system operates as a complete end-to-end hazard reporting platform.
 
