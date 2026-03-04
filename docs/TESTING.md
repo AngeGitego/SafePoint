@@ -1,6 +1,5 @@
 
 
-# System Testing
 
 ## Introduction
 
@@ -18,7 +17,7 @@ Testing focused on the following aspects of the system:
 
 Multiple testing strategies were used to evaluate both functionality and reliability.
 
----
+
 
 # Testing Strategy
 
@@ -40,7 +39,7 @@ Device testing ensured that the mobile application functions consistently across
 
 Integration testing verified that the mobile application, cloud backend, and leader dashboard communicate correctly and synchronize data in real time.
 
----
+
 
 # AR Hazard Placement Testing
 
@@ -64,7 +63,7 @@ The hazard marker should appear anchored to the detected surface within the AR e
 
 The marker appeared correctly in the AR scene and remained anchored to the detected surface.
 
----
+
 
 # Evidence Recording Workflow Testing
 
@@ -89,7 +88,7 @@ The recorded video should be saved locally in the device's screen recording gall
 
 The screen recording was successfully saved and clearly showed the AR hazard marker placement.
 
----
+
 
 # Report Submission Testing
 
@@ -113,7 +112,7 @@ The report should be stored in the Firestore database with the correct data fiel
 
 The report appeared in the database with the expected fields including category, description, timestamp, and report status.
 
----
+
 
 # WhatsApp Sharing Testing
 
@@ -136,7 +135,7 @@ WhatsApp should open with a pre-filled report message containing the hazard info
 
 WhatsApp opened successfully and displayed the correct message structure.
 
----
+
 
 # Leader Dashboard Integration Testing
 
@@ -158,7 +157,7 @@ The submitted report should appear on the dashboard and display the associated h
 
 Reports appeared correctly in the dashboard interface and could be viewed by the assigned leader.
 
----
+
 
 # Device Compatibility Testing
 
@@ -181,7 +180,7 @@ The application successfully performed the following tasks on both devices:
 
 No major compatibility issues were observed.
 
----
+
 
 # Performance Observations
 
@@ -197,7 +196,7 @@ Key observations included:
 
 No crashes or major performance issues occurred during testing.
 
----
+
 
 # Summary
 
@@ -215,9 +214,10 @@ Leaders can then monitor and manage these reports through the dashboard.
 
 The testing results demonstrate that the SafePoint system functions reliably across its core features and supports the intended community hazard reporting workflow.
 
----
+
 
 ## Final Status
 
 The SafePoint ecosystem was successfully tested across both the **mobile application** and the **leader dashboard**, confirming that the system operates as a complete end-to-end hazard reporting platform.
+
 
