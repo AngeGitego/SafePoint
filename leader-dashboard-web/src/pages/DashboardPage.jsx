@@ -15,7 +15,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
-// ✅ Responsive hook (no CSS file needed)
+// Responsive hook
 function useIsNarrow(breakpoint = 960) {
   const [isNarrow, setIsNarrow] = useState(() => window.innerWidth <= breakpoint);
 
@@ -30,7 +30,6 @@ function useIsNarrow(breakpoint = 960) {
 
 export default function DashboardPage() {
   const BUILD_STAMP = "SafePoint Dashboard • BUILD 2026-03-02";
-
   const isNarrow = useIsNarrow(960);
 
   const [leader, setLeader] = useState(null);
@@ -60,7 +59,6 @@ export default function DashboardPage() {
   const [authorityName, setAuthorityName] = useState("");
   const [leaderComment, setLeaderComment] = useState("");
 
-  // Derived
   const categories = useMemo(() => getCategories(reports), [reports]);
 
   const filteredReports = useMemo(
@@ -74,10 +72,8 @@ export default function DashboardPage() {
   );
 
   const summary = useMemo(() => buildSummary(monthReports), [monthReports]);
-
   const mapCenter = useMemo(() => getMapCenter(filteredReports), [filteredReports]);
 
-  // 1) Load leader + realtime reports
   useEffect(() => {
     let unsubReports = null;
 
@@ -102,7 +98,10 @@ export default function DashboardPage() {
           );
         }
 
-        const leaderData = { id: leaderSnap.docs[0].id, ...leaderSnap.docs[0].data() };
+        const leaderData = {
+          id: leaderSnap.docs[0].id,
+          ...leaderSnap.docs[0].data(),
+        };
         setLeader(leaderData);
 
         const reportsQuery = query(
@@ -135,7 +134,6 @@ export default function DashboardPage() {
     };
   }, []);
 
-  // 2) Auto-fit map to filtered reports
   useEffect(() => {
     if (!mapRef.current) return;
 
@@ -150,7 +148,6 @@ export default function DashboardPage() {
     }
   }, [filteredReports]);
 
-  // ✅ CRITICAL: when layout changes (mobile/desktop), Leaflet needs invalidateSize()
   useEffect(() => {
     if (!mapRef.current) return;
     const t = setTimeout(() => {
@@ -163,12 +160,10 @@ export default function DashboardPage() {
     return () => clearTimeout(t);
   }, [isNarrow]);
 
-  // Session
   const logout = async () => {
     await signOut(auth);
   };
 
-  // Actions
   const resolveWithCommunity = async (reportId) => {
     try {
       await updateDoc(doc(db, "reports", reportId), { status: "COMMUNITY" });
@@ -252,7 +247,6 @@ export default function DashboardPage() {
       }
 
       const docPdf = new jsPDF();
-
       const title = "SafePoint Monthly Summary";
       const monthLabel = summaryMonth || "Selected Month";
 
@@ -323,7 +317,6 @@ export default function DashboardPage() {
     if (marker && marker.openPopup) marker.openPopup();
   };
 
-  // ✅ Responsive layout values (THIS is what makes it fill screen properly)
   const layoutGridStyle = useMemo(() => {
     if (isNarrow) {
       return {
@@ -333,10 +326,11 @@ export default function DashboardPage() {
         alignItems: "start",
       };
     }
+
     return {
       display: "grid",
-      gridTemplateColumns: "560px minmax(0, 1fr)",
-      gap: 16,
+      gridTemplateColumns: "420px minmax(0, 1fr)",
+      gap: 18,
       alignItems: "start",
     };
   }, [isNarrow]);
@@ -368,8 +362,8 @@ export default function DashboardPage() {
 
         {!loading && error && (
           <div style={styles.panel}>
-            <div style={{ color: "#ffb4b4", fontWeight: 900 }}>Notice</div>
-            <div style={{ color: "rgba(255,255,255,.85)", marginTop: 8 }}>{error}</div>
+            <div style={{ color: "#B91C1C", fontWeight: 800 }}>Notice</div>
+            <div style={{ color: "#374151", marginTop: 8 }}>{error}</div>
           </div>
         )}
 
@@ -380,9 +374,11 @@ export default function DashboardPage() {
               {/* Profile */}
               <div style={styles.panel}>
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-                  <div style={{ fontWeight: 900, fontSize: 16 }}>Leader Profile</div>
-                  <div style={{ color: "rgba(255,255,255,.65)", fontSize: 12 }}>
-                    Cell: <b style={{ color: "white" }}>{leader.cellId}</b>
+                  <div style={{ fontWeight: 800, fontSize: 16, color: "#111827" }}>
+                    Leader Profile
+                  </div>
+                  <div style={{ color: "#6B7280", fontSize: 12 }}>
+                    Cell: <b style={{ color: "#111827" }}>{leader.cellId}</b>
                   </div>
                 </div>
 
@@ -422,14 +418,12 @@ export default function DashboardPage() {
                   <div style={styles.summarySubTitle}>Top Categories</div>
                   <div style={{ display: "grid", gap: 6 }}>
                     {summary.topCategories.length === 0 ? (
-                      <div style={{ color: "rgba(255,255,255,.75)" }}>
-                        No reports for this month.
-                      </div>
+                      <div style={{ color: "#6B7280" }}>No reports for this month.</div>
                     ) : (
                       summary.topCategories.map((c) => (
                         <div key={c.category} style={styles.categoryRow}>
-                          <span style={{ color: "white", fontWeight: 900 }}>{c.category}</span>
-                          <span style={{ color: "rgba(255,255,255,.8)" }}>{c.count}</span>
+                          <span style={{ color: "#111827", fontWeight: 800 }}>{c.category}</span>
+                          <span style={{ color: "#6B7280" }}>{c.count}</span>
                         </div>
                       ))
                     )}
@@ -438,14 +432,18 @@ export default function DashboardPage() {
                   <div style={styles.summaryActions}>
                     <button
                       style={styles.actionBtnOutline}
-                      onClick={() => copyToClipboard(buildSummaryMessage(leader, summaryMonth, summary))}
+                      onClick={() =>
+                        copyToClipboard(buildSummaryMessage(leader, summaryMonth, summary))
+                      }
                     >
                       Copy Summary
                     </button>
 
                     <button
                       style={styles.actionBtn}
-                      onClick={() => shareSummaryToWhatsApp(leader, summaryMonth, summary, setError)}
+                      onClick={() =>
+                        shareSummaryToWhatsApp(leader, summaryMonth, summary, setError)
+                      }
                     >
                       Share to WhatsApp
                     </button>
@@ -461,7 +459,7 @@ export default function DashboardPage() {
               <div style={styles.panel}>
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
                   <div style={styles.sectionTitle}>Reports</div>
-                  <div style={{ color: "rgba(255,255,255,.65)", fontSize: 12 }}>
+                  <div style={{ color: "#6B7280", fontSize: 12 }}>
                     {filteredReports.length} shown
                   </div>
                 </div>
@@ -514,7 +512,7 @@ export default function DashboardPage() {
                       onClick={() => onReportClick(r)}
                     >
                       <div style={styles.reportTopRow}>
-                        <div style={{ color: "white", fontWeight: 900 }}>
+                        <div style={{ color: "#111827", fontWeight: 800 }}>
                           {r.category || "Uncategorized"}
                         </div>
                         <span style={badgeStyle(r.status)}>
@@ -522,7 +520,7 @@ export default function DashboardPage() {
                         </span>
                       </div>
 
-                      <div style={{ color: "rgba(255,255,255,.85)", marginTop: 8 }}>
+                      <div style={{ color: "#374151", marginTop: 8 }}>
                         {r.description || "(no description)"}
                       </div>
 
@@ -545,9 +543,7 @@ export default function DashboardPage() {
                   ))}
 
                   {filteredReports.length === 0 && (
-                    <div style={{ color: "rgba(255,255,255,.75)" }}>
-                      No reports match your filters.
-                    </div>
+                    <div style={{ color: "#6B7280" }}>No reports match your filters.</div>
                   )}
                 </div>
               </div>
@@ -561,7 +557,7 @@ export default function DashboardPage() {
                 <div
                   style={{
                     ...styles.mapWrap,
-                    height: isNarrow ? 420 : 720,
+                    height: isNarrow ? 380 : 520,
                   }}
                 >
                   <MapContainer
@@ -595,7 +591,7 @@ export default function DashboardPage() {
                           }}
                         >
                           <Popup>
-                            <div style={{ fontWeight: 900 }}>{r.category || "Uncategorized"}</div>
+                            <div style={{ fontWeight: 800 }}>{r.category || "Uncategorized"}</div>
                             <div style={{ marginTop: 4 }}>
                               {(r.status || "PENDING").toUpperCase()}
                             </div>
@@ -649,7 +645,6 @@ export default function DashboardPage() {
   );
 }
 
-// Small helper component
 function StatBox({ number, label }) {
   return (
     <div style={styles.summaryStatBox}>
@@ -658,8 +653,6 @@ function StatBox({ number, label }) {
     </div>
   );
 }
-
-/* ---------------- helpers ---------------- */
 
 function formatTs(ts) {
   try {
@@ -706,19 +699,38 @@ function badgeStyle(status) {
   const s = (status || "PENDING").toUpperCase();
 
   const base = {
-    padding: "6px 10px",
+    padding: "6px 12px",
     borderRadius: 999,
     fontSize: 12,
-    fontWeight: 900,
-    border: "1px solid rgba(255,255,255,.18)",
-    color: "white",
+    fontWeight: 800,
     whiteSpace: "nowrap",
-    background: "rgba(255,255,255,.14)",
+    border: "1px solid transparent",
   };
 
-  if (s === "ESCALATED") return { ...base, background: "rgba(255,80,80,.30)" };
-  if (s === "COMMUNITY") return { ...base, background: "rgba(80,255,160,.20)" };
-  return base;
+  if (s === "ESCALATED") {
+    return {
+      ...base,
+      background: "#FEF2F2",
+      color: "#B91C1C",
+      border: "1px solid #FECACA",
+    };
+  }
+
+  if (s === "COMMUNITY") {
+    return {
+      ...base,
+      background: "#ECFDF5",
+      color: "#047857",
+      border: "1px solid #A7F3D0",
+    };
+  }
+
+  return {
+    ...base,
+    background: "#FFFBEB",
+    color: "#B45309",
+    border: "1px solid #FDE68A",
+  };
 }
 
 function getMonthKey(date) {
@@ -826,75 +838,103 @@ function shareSummaryToWhatsApp(leader, monthKey, summary, setError) {
   }
 }
 
-/* ---------------- styles ---------------- */
-
 const styles = {
   page: {
     minHeight: "100vh",
-    background:
-      "radial-gradient(1200px 600px at 10% 10%, rgba(122,31,162,.25), transparent), #0b0b14",
-    color: "white",
+    background: "#F6F8FB",
+    color: "#1F2937",
   },
 
   header: {
-    position: "sticky",
-    top: 0,
+    position: "relative",
     zIndex: 20,
-    background: "rgba(18, 18, 28, .75)",
+    background: "rgba(255,255,255,0.92)",
     backdropFilter: "blur(10px)",
-    borderBottom: "1px solid rgba(255,255,255,.08)",
-    padding: "16px 22px",
+    borderBottom: "1px solid #E5E7EB",
+    padding: "18px 24px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
   },
 
-  hTitle: { color: "white", fontWeight: 900, fontSize: 18, letterSpacing: 0.2 },
-  hSub: { color: "rgba(255,255,255,.75)", marginTop: 6, fontSize: 13 },
-  buildStamp: { color: "rgba(255,255,255,.55)", marginTop: 6, fontSize: 11 },
+  hTitle: {
+    color: "#111827",
+    fontWeight: 800,
+    fontSize: 20,
+    letterSpacing: 0.2,
+  },
+
+  hSub: {
+    color: "#6B7280",
+    marginTop: 6,
+    fontSize: 13,
+  },
+
+  buildStamp: {
+    color: "#9CA3AF",
+    marginTop: 6,
+    fontSize: 11,
+  },
 
   logout: {
-    background: "rgba(255,255,255,.08)",
-    color: "white",
-    border: "1px solid rgba(255,255,255,.14)",
+    background: "#FFFFFF",
+    color: "#1F2937",
+    border: "1px solid #D1D5DB",
     padding: "10px 14px",
     borderRadius: 12,
     cursor: "pointer",
-    fontWeight: 800,
+    fontWeight: 700,
+    boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
   },
 
   shell: {
-  width: "100%",
-  maxWidth:  "100%",     // or "100%" if you want full stretch
-  margin: "0 auto",
-  padding: "18px 22px 28px",
-},
-
-  panel: {
-    background: "linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03))",
-    border: "1px solid rgba(255,255,255,.10)",
-    borderRadius: 18,
-    padding: 16,
-    boxShadow: "0 14px 45px rgba(0,0,0,.45)",
+    width: "100%",
+    maxWidth: "1450px",
+    margin: "0 auto",
+    padding: "20px 18px 28px",
   },
 
-  sectionTitle: { marginTop: 0, color: "white", fontWeight: 900, fontSize: 14 },
+  panel: {
+    background: "#FFFFFF",
+    border: "1px solid #E5E7EB",
+    borderRadius: 20,
+    padding: 18,
+    boxShadow: "0 8px 24px rgba(15, 23, 42, 0.06)",
+  },
 
-  row: { color: "rgba(255,255,255,.88)", marginTop: 10, fontSize: 14 },
-  label: { color: "rgba(255,255,255,.55)", marginRight: 10, fontWeight: 700 },
+  sectionTitle: {
+    marginTop: 0,
+    color: "#111827",
+    fontWeight: 800,
+    fontSize: 15,
+  },
+
+  row: {
+    color: "#374151",
+    marginTop: 10,
+    fontSize: 14,
+  },
+
+  label: {
+    color: "#6B7280",
+    marginRight: 10,
+    fontWeight: 700,
+  },
 
   reportCard: {
-    background: "rgba(0,0,0,.18)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "#FFFFFF",
+    border: "1px solid #E5E7EB",
     borderRadius: 16,
     padding: 14,
     cursor: "pointer",
-    transition: "transform .12s ease, border-color .12s ease",
+    transition: "all 0.18s ease",
+    boxShadow: "0 4px 12px rgba(15, 23, 42, 0.04)",
   },
 
   reportCardSelected: {
-    border: "1px solid rgba(162,78,255,.85)",
-    boxShadow: "0 0 0 3px rgba(162,78,255,.18)",
+    border: "1px solid #1F6F5B",
+    boxShadow: "0 0 0 3px rgba(31,111,91,0.10)",
+    background: "#F3FBF8",
   },
 
   reportTopRow: {
@@ -905,7 +945,7 @@ const styles = {
   },
 
   meta: {
-    color: "rgba(255,255,255,.60)",
+    color: "#6B7280",
     marginTop: 8,
     fontSize: 12,
   },
@@ -918,41 +958,42 @@ const styles = {
   },
 
   actionBtn: {
-    background: "linear-gradient(180deg, #8B3DFF, #6E2BD9)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "#1F6F5B",
+    border: "1px solid #1F6F5B",
     color: "white",
-    padding: "10px 12px",
+    padding: "10px 14px",
     borderRadius: 12,
     cursor: "pointer",
-    fontWeight: 900,
+    fontWeight: 800,
     fontSize: 12,
+    boxShadow: "0 4px 10px rgba(31,111,91,0.14)",
   },
 
   actionBtnOutline: {
-    background: "transparent",
-    border: "1px solid rgba(255,255,255,.18)",
-    color: "white",
-    padding: "10px 12px",
+    background: "#FFFFFF",
+    border: "1px solid #D1D5DB",
+    color: "#1F2937",
+    padding: "10px 14px",
     borderRadius: 12,
     cursor: "pointer",
-    fontWeight: 900,
+    fontWeight: 800,
     fontSize: 12,
   },
 
   mapWrap: {
     width: "100%",
-    background: "rgba(0,0,0,.18)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "#F9FAFB",
+    border: "1px solid #E5E7EB",
     borderRadius: 18,
     overflow: "hidden",
     marginTop: 12,
+    boxShadow: "0 6px 18px rgba(15, 23, 42, 0.05)",
   },
 
-  // Summary UI
   summaryCard: {
     marginTop: 12,
-    background: "rgba(0,0,0,.18)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "#F9FAFB",
+    border: "1px solid #E5E7EB",
     borderRadius: 16,
     padding: 14,
   },
@@ -964,12 +1005,16 @@ const styles = {
     alignItems: "center",
   },
 
-  summaryLabel: { color: "rgba(255,255,255,.75)", fontWeight: 900, fontSize: 12 },
+  summaryLabel: {
+    color: "#4B5563",
+    fontWeight: 700,
+    fontSize: 12,
+  },
 
   monthInput: {
-    background: "rgba(255,255,255,.06)",
-    color: "white",
-    border: "1px solid rgba(255,255,255,.14)",
+    background: "#FFFFFF",
+    color: "#111827",
+    border: "1px solid #D1D5DB",
     borderRadius: 12,
     padding: "10px 12px",
     outline: "none",
@@ -983,62 +1028,85 @@ const styles = {
   },
 
   summaryStatBox: {
-    background: "rgba(255,255,255,.05)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "#FFFFFF",
+    border: "1px solid #E5E7EB",
     borderRadius: 14,
     padding: 12,
   },
 
-  summaryStatNumber: { fontWeight: 900, fontSize: 18 },
-  summaryStatText: {
-    color: "rgba(255,255,255,.75)",
-    fontSize: 12,
-    marginTop: 6,
+  summaryStatNumber: {
     fontWeight: 800,
+    fontSize: 20,
+    color: "#111827",
   },
 
-  summarySubTitle: { marginTop: 14, fontWeight: 900, fontSize: 13 },
+  summaryStatText: {
+    color: "#6B7280",
+    fontSize: 12,
+    marginTop: 6,
+    fontWeight: 700,
+  },
+
+  summarySubTitle: {
+    marginTop: 14,
+    fontWeight: 800,
+    fontSize: 13,
+    color: "#111827",
+  },
 
   categoryRow: {
     display: "flex",
     justifyContent: "space-between",
     gap: 12,
-    padding: "8px 10px",
+    padding: "10px 12px",
     borderRadius: 12,
-    background: "rgba(255,255,255,.04)",
-    border: "1px solid rgba(255,255,255,.08)",
+    background: "#FFFFFF",
+    border: "1px solid #E5E7EB",
   },
 
-  summaryActions: { display: "flex", gap: 10, flexWrap: "wrap", marginTop: 14 },
+  summaryActions: {
+    display: "flex",
+    gap: 10,
+    flexWrap: "wrap",
+    marginTop: 14,
+  },
 
-  // Filters
-  filtersBar: { display: "grid", gap: 10, marginTop: 12 },
+  filtersBar: {
+    display: "grid",
+    gap: 10,
+    marginTop: 12,
+  },
 
-  chipsRow: { display: "flex", gap: 8, flexWrap: "wrap" },
+  chipsRow: {
+    display: "flex",
+    gap: 8,
+    flexWrap: "wrap",
+  },
 
   chip: {
-    padding: "8px 10px",
+    padding: "8px 12px",
     borderRadius: 999,
-    border: "1px solid rgba(255,255,255,.14)",
-    background: "rgba(255,255,255,.04)",
-    color: "white",
+    border: "1px solid #D1D5DB",
+    background: "#FFFFFF",
+    color: "#374151",
     cursor: "pointer",
-    fontWeight: 900,
+    fontWeight: 700,
     fontSize: 12,
   },
 
   chipActive: {
-    background: "rgba(162,78,255,.25)",
-    border: "1px solid rgba(162,78,255,.55)",
+    background: "#EAF4F1",
+    border: "1px solid #B7D9CE",
+    color: "#1F6F5B",
   },
 
   select: {
     width: "100%",
     padding: "10px 12px",
     borderRadius: 12,
-    border: "1px solid rgba(255,255,255,.14)",
-    background: "rgba(255,255,255,.06)",
-    color: "white",
+    border: "1px solid #D1D5DB",
+    background: "#FFFFFF",
+    color: "#111827",
     outline: "none",
   },
 
@@ -1046,17 +1114,16 @@ const styles = {
     width: "100%",
     padding: "10px 12px",
     borderRadius: 12,
-    border: "1px solid rgba(255,255,255,.14)",
-    background: "rgba(255,255,255,.06)",
-    color: "white",
+    border: "1px solid #D1D5DB",
+    background: "#FFFFFF",
+    color: "#111827",
     outline: "none",
   },
 
-  // modal
   modalBackdrop: {
     position: "fixed",
     inset: 0,
-    background: "rgba(0,0,0,.60)",
+    background: "rgba(15, 23, 42, 0.35)",
     display: "grid",
     placeItems: "center",
     padding: 16,
@@ -1066,19 +1133,24 @@ const styles = {
   modalCard: {
     width: "100%",
     maxWidth: 560,
-    background: "rgba(18,18,28,.95)",
-    borderRadius: 18,
-    padding: 16,
-    border: "1px solid rgba(255,255,255,.12)",
-    boxShadow: "0 18px 60px rgba(0,0,0,.60)",
+    background: "#FFFFFF",
+    borderRadius: 20,
+    padding: 18,
+    border: "1px solid #E5E7EB",
+    boxShadow: "0 20px 60px rgba(15, 23, 42, 0.18)",
   },
 
-  modalTitle: { color: "white", fontWeight: 900, fontSize: 18, marginBottom: 14 },
+  modalTitle: {
+    color: "#111827",
+    fontWeight: 800,
+    fontSize: 18,
+    marginBottom: 14,
+  },
 
   modalLabel: {
-    color: "rgba(255,255,255,.70)",
+    color: "#4B5563",
     fontSize: 12,
-    fontWeight: 900,
+    fontWeight: 700,
     marginTop: 10,
     marginBottom: 6,
   },
@@ -1087,10 +1159,10 @@ const styles = {
     width: "100%",
     padding: "12px 12px",
     borderRadius: 12,
-    border: "1px solid rgba(255,255,255,.14)",
+    border: "1px solid #D1D5DB",
     outline: "none",
-    background: "rgba(0,0,0,.25)",
-    color: "white",
+    background: "#FFFFFF",
+    color: "#111827",
     fontSize: 14,
   },
 
@@ -1099,33 +1171,38 @@ const styles = {
     minHeight: 120,
     padding: "12px 12px",
     borderRadius: 12,
-    border: "1px solid rgba(255,255,255,.14)",
+    border: "1px solid #D1D5DB",
     outline: "none",
-    background: "rgba(0,0,0,.25)",
-    color: "white",
+    background: "#FFFFFF",
+    color: "#111827",
     fontSize: 14,
     resize: "vertical",
   },
 
-  modalActions: { display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 14 },
+  modalActions: {
+    display: "flex",
+    justifyContent: "flex-end",
+    gap: 10,
+    marginTop: 14,
+  },
 
   modalBtn: {
-    background: "linear-gradient(180deg, #8B3DFF, #6E2BD9)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "#1F6F5B",
+    border: "1px solid #1F6F5B",
     color: "white",
-    padding: "10px 12px",
+    padding: "10px 14px",
     borderRadius: 12,
     cursor: "pointer",
-    fontWeight: 900,
+    fontWeight: 800,
   },
 
   modalBtnOutline: {
-    background: "transparent",
-    border: "1px solid rgba(255,255,255,.18)",
-    color: "white",
-    padding: "10px 12px",
+    background: "#FFFFFF",
+    border: "1px solid #D1D5DB",
+    color: "#1F2937",
+    padding: "10px 14px",
     borderRadius: 12,
     cursor: "pointer",
-    fontWeight: 900,
+    fontWeight: 800,
   },
 };

@@ -8,15 +8,17 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
   const [resetMsg, setResetMsg] = useState("");
+  const navigate = useNavigate();
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setResetMsg("");
     setLoading(true);
+
     try {
       await signInWithEmailAndPassword(auth, email.trim(), password);
-      // Next section: redirect to dashboard
       navigate("/dashboard");
     } catch (err) {
       setError(err?.message || "Login failed");
@@ -24,69 +26,83 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
   const handleResetPassword = async () => {
-  setError("");
-  setResetMsg("");
+    setError("");
+    setResetMsg("");
 
-  if (!email || !email.includes("@")) {
-    setError("Enter your email first, then click Forgot Password.");
-    return;
-  }
+    if (!email || !email.includes("@")) {
+      setError("Enter your email first, then click Forgot Password.");
+      return;
+    }
 
-  try {
-    await sendPasswordResetEmail(auth, email.trim());
-    setResetMsg("Password reset email sent ✅ Check your inbox (and spam).");
-  } catch (e) {
-    setError(e?.message || "Failed to send reset email.");
-  }
-};
+    try {
+      await sendPasswordResetEmail(auth, email.trim());
+      setResetMsg("Password reset email sent. Check your inbox and spam folder.");
+    } catch (e) {
+      setError(e?.message || "Failed to send reset email.");
+    }
+  };
 
   return (
     <div style={styles.page}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Welcome back!</h1>
+        <div style={styles.brandRow}>
+          <div style={styles.brandBadge}>SP</div>
+          <div>
+            <div style={styles.brandName}>SafePoint</div>
+            <div style={styles.brandSub}>Leader Access Portal</div>
+          </div>
+        </div>
+
+        <h1 style={styles.title}>Welcome back</h1>
         <p style={styles.subtitle}>
-  Sign in to access your SafePoint Leader Dashboard.
-</p>
+          Sign in to access your SafePoint Leader Dashboard and manage community hazard reports.
+        </p>
 
         <form onSubmit={onSubmit} style={styles.form}>
-          <input
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
-          />
+          <div style={styles.fieldGroup}>
+            <label style={styles.label}>Email Address</label>
+            <input
+              style={styles.input}
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              type="email"
+            />
+          </div>
 
-          <input
-            style={styles.input}
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-          />
+          <div style={styles.fieldGroup}>
+            <label style={styles.label}>Password</label>
+            <input
+              style={styles.input}
+              placeholder="Enter your password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
+          </div>
 
           <button
-  style={{
-    ...styles.button,
-    ...(loading || !email || !password ? styles.buttonDisabled : {}),
-  }}
-  disabled={loading || !email || !password}
->
-  {loading ? "Signing in..." : "Access My Dashboard"}
-</button>
-<button type="button" onClick={handleResetPassword} style={styles.linkBtn}>
-  Forgot Password?
-</button>
+            type="submit"
+            style={{
+              ...styles.button,
+              ...(loading || !email || !password ? styles.buttonDisabled : {}),
+            }}
+            disabled={loading || !email || !password}
+          >
+            {loading ? "Signing in..." : "Access Dashboard"}
+          </button>
 
-{resetMsg && <div style={styles.success}>{resetMsg}</div>}
-          {error && <p style={styles.error}>{error}</p>}
+          <button type="button" onClick={handleResetPassword} style={styles.linkBtn}>
+            Forgot Password?
+          </button>
+
+          {resetMsg && <div style={styles.success}>{resetMsg}</div>}
+          {error && <div style={styles.error}>{error}</div>}
         </form>
-
-        <p style={styles.note}>
-          
-        </p>
       </div>
     </div>
   );
@@ -98,106 +114,148 @@ const styles = {
     display: "grid",
     placeItems: "center",
     padding: 24,
-    background:
-      "radial-gradient(1200px 600px at 10% 10%, rgba(122,31,162,.25), transparent), #0b0b14",
-    color: "white",
+    background: "#F6F8FB",
   },
 
   card: {
     width: "100%",
     maxWidth: 440,
-    padding: 26,
-    borderRadius: 18,
-    background: "linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03))",
-    border: "1px solid rgba(255,255,255,.10)",
-    boxShadow: "0 14px 45px rgba(0,0,0,.55)",
+    padding: 28,
+    borderRadius: 22,
+    background: "#FFFFFF",
+    border: "1px solid #E5E7EB",
+    boxShadow: "0 18px 45px rgba(15, 23, 42, 0.08)",
+  },
+
+  brandRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 12,
+    marginBottom: 18,
+  },
+
+  brandBadge: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    background: "#EAF4F1",
+    color: "#1F6F5B",
+    display: "grid",
+    placeItems: "center",
+    fontWeight: 900,
+    fontSize: 14,
+    border: "1px solid #CFE7DE",
+  },
+
+  brandName: {
+    fontSize: 15,
+    fontWeight: 800,
+    color: "#111827",
+    lineHeight: 1.2,
+  },
+
+  brandSub: {
+    fontSize: 12,
+    color: "#6B7280",
+    marginTop: 2,
   },
 
   title: {
-    color: "white",
+    color: "#111827",
     fontSize: 30,
     margin: 0,
-    fontWeight: 900,
+    fontWeight: 800,
     letterSpacing: 0.2,
   },
 
   subtitle: {
     marginTop: 8,
-    marginBottom: 18,
-    color: "rgba(255,255,255,.70)",
-    fontSize: 13,
-    lineHeight: 1.4,
+    marginBottom: 20,
+    color: "#6B7280",
+    fontSize: 14,
+    lineHeight: 1.5,
   },
 
-  form: { display: "grid", gap: 12 },
+  form: {
+    display: "grid",
+    gap: 14,
+  },
+
+  fieldGroup: {
+    display: "grid",
+    gap: 6,
+  },
+
+  label: {
+    fontSize: 12,
+    fontWeight: 700,
+    color: "#4B5563",
+  },
 
   input: {
-  width: "100%",
-  padding: "12px 14px",
-  borderRadius: 12,
-  border: "1px solid rgba(255,255,255,.14)",
-  outline: "none",
-  background: "rgba(255,255,255,.06)",
-  color: "white",
-  fontSize: 14,
-  boxSizing: "border-box"   // ✅ This fixes the overflow
-},
+    width: "100%",
+    padding: "12px 14px",
+    borderRadius: 12,
+    border: "1px solid #D1D5DB",
+    outline: "none",
+    background: "#FFFFFF",
+    color: "#111827",
+    fontSize: 14,
+    boxSizing: "border-box",
+  },
+
   button: {
-  marginTop: 8,
-  width: "100%",
-  padding: "12px 14px",
-  borderRadius: 12,
-  border: "1px solid rgba(255,255,255,.10)",
-  background: "linear-gradient(180deg, #8B3DFF, #6E2BD9)",
-  color: "white",
-  fontWeight: 900,
-  cursor: "pointer",
-  letterSpacing: 0.2,
-  boxSizing: "border-box"
-},
+    marginTop: 6,
+    width: "100%",
+    padding: "12px 14px",
+    borderRadius: 12,
+    border: "1px solid #1F6F5B",
+    background: "#1F6F5B",
+    color: "white",
+    fontWeight: 800,
+    cursor: "pointer",
+    letterSpacing: 0.2,
+    boxSizing: "border-box",
+    boxShadow: "0 6px 14px rgba(31,111,91,0.16)",
+  },
 
   buttonDisabled: {
     opacity: 0.55,
     cursor: "not-allowed",
+    boxShadow: "none",
   },
 
   linkBtn: {
     background: "transparent",
     border: "none",
-    color: "rgba(255,255,255,.80)",
+    color: "#1F6F5B",
     cursor: "pointer",
-    marginTop: 10,
+    marginTop: 2,
     textDecoration: "underline",
-    fontWeight: 800,
+    fontWeight: 700,
     justifySelf: "start",
     padding: 0,
   },
 
   success: {
-    marginTop: 10,
+    marginTop: 6,
     padding: "10px 12px",
     borderRadius: 12,
-    background: "rgba(120,255,170,.10)",
-    border: "1px solid rgba(120,255,170,.25)",
-    color: "rgba(120,255,170,.95)",
+    background: "#ECFDF5",
+    border: "1px solid #A7F3D0",
+    color: "#047857",
     fontSize: 13,
-    fontWeight: 800,
+    fontWeight: 700,
   },
 
   error: {
-    marginTop: 10,
+    marginTop: 6,
     padding: "10px 12px",
     borderRadius: 12,
-    background: "rgba(255,140,140,.10)",
-    border: "1px solid rgba(255,140,140,.22)",
-    color: "#ffb4b4",
+    background: "#FEF2F2",
+    border: "1px solid #FECACA",
+    color: "#B91C1C",
     fontSize: 13,
-    fontWeight: 800,
-  },
-
-  note: {
-    color: "rgba(255,255,255,.55)",
-    marginTop: 14,
-    fontSize: 11,
+    fontWeight: 700,
   },
 };
