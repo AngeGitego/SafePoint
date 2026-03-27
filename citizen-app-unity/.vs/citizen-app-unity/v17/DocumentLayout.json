@@ -3,44 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\safe-point\\citizen-app-unity\\assets\\scripts\\arplacementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arplacementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\arscripts\\arscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arscripts\\arscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\safe-point\\citizen-app-unity\\assets\\scripts\\locationdropdownautoid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\locationdropdownautoid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\arscripts\\spawnflowbridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arscripts\\spawnflowbridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\locationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\locationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\safe-point\\citizen-app-unity\\assets\\scripts\\arscripts\\hazardtapdelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arscripts\\hazardtapdelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\reportsdetailsui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\reportsdetailsui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\submitreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\submitreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\scenenav.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenenav.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\reportmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\reportmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\Scripts 1\\AppStateManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Scripts 1\\AppStateManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ScreenRecordGuide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ScreenRecordGuide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\assets\\scripts\\arscripts\\hazardmarker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B533D73-1499-CC16-606E-42AB3548E941}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arscripts\\hazardmarker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,133 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ARPlacementManager.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARPlacementManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ARPlacementManager.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARPlacementManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ARPlacementManager.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAwwBoBAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T07:06:28.564Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LocationDropdownAutoId.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\LocationDropdownAutoId.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\LocationDropdownAutoId.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\LocationDropdownAutoId.cs",
-              "RelativeToolTip": "Assets\\Scripts\\LocationDropdownAutoId.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAwwFoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T18:08:16.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LocationManager.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\LocationManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\LocationManager.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\LocationManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\LocationManager.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAwwGkAAAABAAAAAAAAAA==",
+              "Title": "HazardTapDelete.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\HazardTapDelete.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ARscripts\\HazardTapDelete.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\HazardTapDelete.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ARscripts\\HazardTapDelete.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwFEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T18:01:58.368Z"
+              "WhenOpened": "2026-03-27T02:11:43.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ARSceneController.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\ARSceneController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ARscripts\\ARSceneController.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\ARSceneController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ARscripts\\ARSceneController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T01:21:02.175Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ReportsDetailsUI.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ReportsDetailsUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ReportsDetailsUI.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ReportsDetailsUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ReportsDetailsUI.cs",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAqwO0AAAABAAAAAAAAAA==",
+              "Title": "HazardMarker.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\HazardMarker.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ARscripts\\HazardMarker.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\HazardMarker.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ARscripts\\HazardMarker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T17:42:46.655Z"
+              "WhenOpened": "2026-03-27T01:19:17.771Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ARClipRecorder.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\ARClipRecorder.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwFkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "SpawnFlowBridge.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\SpawnFlowBridge.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ARscripts\\SpawnFlowBridge.cs",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ARscripts\\SpawnFlowBridge.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ARscripts\\SpawnFlowBridge.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwDMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T14:15:46.239Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppStateManager.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scripts 1\\AppStateManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T14:21:34.794Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SubmitReport.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\SubmitReport.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SubmitReport.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\SubmitReport.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SubmitReport.cs",
-              "ViewState": "AgIAAPgAAAAAAAAAAAAYwBEBAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T12:19:49.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SceneNav.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\SceneNav.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SceneNav.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\SceneNav.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SceneNav.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T16:29:13.833Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ScreenRecordGuide.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ScreenRecordGuide.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScreenRecordGuide.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ScreenRecordGuide.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScreenRecordGuide.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAYwEAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T15:07:36.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ReportManager.cs",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ReportManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ReportManager.cs",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\Safe-point\\citizen-app-unity\\Assets\\Scripts\\ReportManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ReportManager.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAswGUAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T12:21:33.193Z"
+              "WhenOpened": "2026-03-27T00:11:38.301Z",
+              "EditorCaption": ""
             }
           ]
         }
